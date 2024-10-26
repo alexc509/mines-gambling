@@ -1,0 +1,1 @@
+Click on the mines, if you find a diamond you get money if you find a bomb you lose everything up to that point.
