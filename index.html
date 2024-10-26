@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        button {
+            width: 110px;
+            height: 110px;
+            line-height: 110px;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 8px;
+            font-size: 32px;
+
+        }
+        button:disabled {
+            opacity: 1;
+            background-color: rgb(135, 141, 168);
+            color: white;
+
+        }
+        #moneyAmount {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color:azure;
+            font-family: 'Roboto';
+        }
+        .reset {
+            width: 100px;
+            height: 250x;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            background-color: rgba(31, 255, 32);
+            color: rgb(0, 0, 0);
+            border: none;
+            cursor: pointer;
+            font-family: 'Roboto';
+        }
+    </style>
+</head>
+<body style="background-color: #1a2c38;">
+    <div id="moneyAmount">Money: $100</div>
+    <div class="button-row">
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+    </div>
+    <div class="button-row">
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+    </div>
+    <div class="button-row">
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+    </div>
+    <div class="button-row">
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+    </div>
+    <div class="button-row">
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+        <button class="Square" type="button" onclick="clickTile(this)"></button>
+    </div>
+    <button class="reset" type="button" onclick="refresh()">Restart</button>
+
+</body>
+<script>
+let money = 100;
+let mineIndex = Math.floor(Math.random() * 25);
+let buttons = document.querySelectorAll('.Square');
+
+function clickTile(button) {
+    let index = Array.from(buttons).indexOf(button);
+    
+    if (index === mineIndex) {
+        button.textContent = "💣";
+        button.style.backgroundColor = "red";
+        money = 0;
+    } else {
+        button.textContent = "💎";
+        money = money * 1.1;
+    }
+    button.disabled = true;
+    document.getElementById("moneyAmount").textContent = "Money: $" + money.toFixed(2);
+}
+
+function refresh() {
+    window.location.reload();
+}
+</script>
+</html>
